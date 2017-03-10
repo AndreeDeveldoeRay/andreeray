@@ -4,23 +4,14 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T04:46:58+01:00
+* @Last modified time: 2017-03-10T06:56:29+01:00
 */
 
 
 
 var React    = require('react'),
     ReactDOM = require('react-dom'),
-    {Router,Route, hashHistory}   = require('react-router'),
-    Main     = require('Main'),
-    store = require('store').config(),
-    actions = require('actions')
-
-
-
-var unsubscribe = store.subscribe(() => {
-    var state = store.getState()
-})
+    Main     = require('Main')
 
 
 //app css
@@ -28,8 +19,6 @@ require('style!css!sass!styles')
 
 
 ReactDOM.render(
-    <Router history={hashHistory}>
-        <Route path="/" component={Main}></Route>
-    </Router>,
+    <Main/>,
     document.getElementById('app')
 )

@@ -4,10 +4,10 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T04:43:26+01:00
+* @Last modified time: 2017-03-10T07:02:30+01:00
 */
 
-var React = require('react'), Input = require('Input'), API = require('API'), Mousetrap = require('Mousetrap'), actions = require('actions'), store = require('store').config()
+var React = require('react'), Input = require('Input'), api = require('api'), Mousetrap = require('Mousetrap')
 
 var Main = React.createClass({
     getInitialState: function () {
@@ -15,14 +15,11 @@ var Main = React.createClass({
             speed: 55
         }
     },
-    componentWillReceiveProps: function (nextProps) {
-        window.location.hash = '#/'
-    },
     componentDidMount: function () {
 
         // cmd from paramter on the url
         var that    = this,
-            cmd     = this.props.location.query.cmd
+            cmd     = this.state.cmd
 
         // If there is no command then asume that the user is a new user
         if (!cmd) cmd = 'presentation'
@@ -49,7 +46,6 @@ var Main = React.createClass({
     handleInput: function (cmd) {
 
         var that = this,
-            {location, backlink} = that.state,
             cmd = cmd.toLowerCase()
 
         //if github then don't do any other executing
@@ -74,16 +70,10 @@ var Main = React.createClass({
                 speed: 55
             })
 
-            // check if youser wants to go back to previous page.
-            // TODO: history array
-            if (cmd === 'back' || cmd === '..') {
-                cmd = backlink
-            }
-
 
             // Get the output from the API
             // NOTE: this is just a mock api.
-            API.getResponse(cmd).then(function (res){
+            api.getResponse(cmd).then(function (res){
                 that.print(res)
             }, function (err) {
                 that.print(err)
