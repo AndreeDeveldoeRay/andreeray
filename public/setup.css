@@ -1,0 +1,111 @@
+/**
+* @Author: Andreee Ray <DevelDoe>
+* @Date:   2017-03-05T23:26:41+01:00
+* @Email:  me@andreeray.se
+* @Filename: setup.css
+* @Last modified by:   DevelDoe
+* @Last modified time: 2017-03-05T23:26:43+01:00
+*/
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing:border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*:focus {
+    outline: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
+    background: black !important;
+	color: #bceaff;
+	text-shadow: rgba(0, 151, 199,0.9) 0px 0px 8px;
+    font-size: 15px;
+	overflow: hidden;
+	font-family: 'Inconsolata', monospace;
+    line-height: 1.3em;
+	font-weight: 200 !important;
+}
+#app{
+    width: 100%;
+    height: 100%;
+	background: rgba(8, 34, 45, 0.7) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAD0lEQVQIW2NkQABjRmQOAAM+AGkQsDBSAAAAAElFTkSuQmCC) repeat;
+	position: absolute;
+	top:0;
+	left:0;
+}
+#bg{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+#video_bg {
+    position: absolute;
+    top: 49%;
+    transform: translateY(-51%);
+    width: 100%;
+}
+video{
+	width: 100%;
+}
+
+.gradientback{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+	height: 100%;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0.8) 52%,rgba(0,0,0,1) 90%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0.8) 52%,rgba(0,0,0,1) 90%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,0.8) 52%,rgba(0,0,0,1) 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    z-index: 1;
+}
