@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T04:38:46+01:00
+* @Last modified time: 2017-03-10T04:45:05+01:00
 */
 
 
@@ -34,13 +34,14 @@ module.exports = {
             'node_modules',
             './app/components',
             './app/api',
-            './app/actions',
-            './app/reducers'
         ],
         alias: {
             styles: 'app/styles/app',
             store: 'app/store/store',
-            reduces: 'app/reducers/reducers'
+            reduces: 'app/reducers/reducers',
+            actions: 'app/actions/actions',
+            api: 'app/api/api',
+            fakeApi: 'app/api/fakeApi'
         },
         extensions: ['','.js','.jsx','.scss']
     },

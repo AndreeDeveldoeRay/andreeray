@@ -3,8 +3,8 @@
 * @Date:   2017-02-19T10:34:13+01:00
 * @Email:  me@andreeray.se
 * @Filename: Store.js
-* @Last modified by:   DevelDoe
-* @Last modified time: 2017-03-05T23:41:22+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-10T04:45:18+01:00
 */
 
 

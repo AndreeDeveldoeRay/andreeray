@@ -4,10 +4,10 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T04:32:58+01:00
+* @Last modified time: 2017-03-10T04:43:26+01:00
 */
 
-var React = require('react'), Input = require('Input'), API = require('API'), Mousetrap = require('Mousetrap'), actions = require('actions'), store = require('storeConfig').config()
+var React = require('react'), Input = require('Input'), API = require('API'), Mousetrap = require('Mousetrap'), actions = require('actions'), store = require('store').config()
 
 var Main = React.createClass({
     getInitialState: function () {
@@ -73,7 +73,7 @@ var Main = React.createClass({
                 backlink: location,
                 speed: 55
             })
-            
+
             // check if youser wants to go back to previous page.
             // TODO: history array
             if (cmd === 'back' || cmd === '..') {

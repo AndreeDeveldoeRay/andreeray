@@ -3,8 +3,8 @@
 * @Date:   2017-03-05T21:30:28+01:00
 * @Email:  me@andreeray.se
 * @Filename: config.jsx
-* @Last modified by:   DevelDoe
-* @Last modified time: 2017-03-05T23:03:13+01:00
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-10T04:46:53+01:00
 */
 
 
