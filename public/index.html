@@ -3,8 +3,8 @@
 @Date:   2017-02-18T23:58:38+01:00
 @Email:  me@andreeray.se
 @Filename: index.html
-@Last modified by:   DevelDoe
-@Last modified time: 2017-03-05T23:27:25+01:00
+@Last modified by:   develdoe
+@Last modified time: 2017-03-13T14:36:08+01:00
 -->
 
 <!DOCTYPE html>
@@ -12,10 +12,71 @@
 <head>
 
     <meta charset=utf-8>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 
-    <link rel="stylesheet" media="all" href="setup.css"
+    <!-- For maximum effeicency basic layout here! -->
+    <style>
+     html,body{
+         z-index: 0;
+         width: 100%;
+         height: 100%;
+     }
+     div    {
+         height: 100%;
+     }
+     body {
+         background: rgba(8, 34, 45, 1) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAD0lEQVQIW2NkQABjRmQOAAM+AGkQsDBSAAAAAElFTkSuQmCC) repeat;
+     }
+     #output, #input{
+         box-sizing: border-box;
+         position: absolute;
+         overflow: hidden;
+         width: 100%
+     }
+     #output {
+         z-index: 3;
+         top:0;
+         height: 70%;
+         padding: 10% 20% 0 20%;
+         width: 100%;
+         overflow: hidden;
+     }
+     #parent {
+         height: 100%;
+         width: 100%;
+         overflow: hidden;
+     }
+     #child {
+          width: 100%;
+          height: 99%;
+          overflow: auto;
+          padding-right: 0px; /* exact value is given in JavaScript code */
+    }
+     #input {
+         z-index: 1;
+         bottom:0;
+         height: 31%;
+         padding: 10% 20%;
+     }
+     .blink {
+         animation-duration: .2s;
+         animation-name: blink;
+         animation-iteration-count: infinite;
+         animation-direction: alternate;
+         animation-timing-function: ease-in-out;
+     }
+     @keyframes blink {
+         from {
+             opacity: 1;
+         }
+         to {
+             opacity: 0;
+         }
+     }
+     </style>
+
+     <link rel="stylesheet" href="/terminal.css">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -23,14 +84,14 @@
     <meta name="twitter:creator" content="@develdoe">
     <meta name="twitter:title" content='Andree "DevelDoe" Ray'>
     <meta name="twitter:description" content="A front end engineer who loves all things HTML, CSS and JavaScript.">
-    <meta name="twitter:image" content="http://andreeray.se/thumb.png">
+    <meta name="twitter:image" content="http://andreeray.se/img/facebook.png">
     <meta name="twitter:url" content="http://andreeray.se">
 
     <!-- Open graph -->
     <meta property="og:title" content='Andree "DevelDoe" Ray'>
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://andreeray.se/">
-    <meta property="og:image" content="http://andreeray.se/thumb.png">
+    <meta property="og:image" content="http://andreeray.se/img/facebook.png">
     <meta property="og:description" content="A front end engineer who loves all things HTML, CSS and JavaScript.">
     <meta property="og:site_name" content="andreeray.se">
     <meta property="og:locale" content="sv_SE">
@@ -39,18 +100,22 @@
 
 <body>
 
-    <div id="bg">
-        <div id=video_bg>
-            <video playsinline autoplay muted loop  id="video" >
-                <source src="/video/sd_na.ogv" type="video/ogg" />
-                <source src="/video/sd_na.mp4" type="video/mp4" />
-            </video>
-            <div class="gradientback"></div>
+    <div id=app>
+        <div id="terminal">
+            <div id="screen" >
+                <div id="output" >
+                    <div id="parent">
+                        <div id="child">
+
+                        </div>
+                    </div>
+                </div>
+            <div id="status">
+                <ul id="application-status">
+                    <li>Loading <span class="blink">.</span></li>
+                </ul>
+            </div>
+            </div>
         </div>
     </div>
-
-
-
-    <div id=app></div>
-
     <script src=bundle.js></script>

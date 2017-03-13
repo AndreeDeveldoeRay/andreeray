@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T04:45:18+01:00
+* @Last modified time: 2017-03-11T21:32:49+01:00
 */
 
 
@@ -28,29 +28,31 @@ var cat = `
     <b>resume</b> | <b>projects</b> | <b>about</b> | <b>contact</b>
 `
 var resume = `
-    <p>Stack</p>
-    <ul>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript ES2015</li>
+    <div id="resume">
+        <h2>- Stack -</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript ES2015</li>
         </ul>
         <p>
-            <small>Main: Foundation | Jekyll | Webpack | Node | React </small><br/>
-            <small>Past: XHTML | PHP | Drupal (PHP) | ROR (Ruby) | jQuery | Dot Net (C#)</small<br/>
+            <span class="block">Main: Foundation | Jekyll | Webpack | Node | React</span>
+            <span class="block">Past: XHTML | PHP | Drupal (PHP) | ROR (Ruby) | jQuery | Dot Net (C#)</span>
         </p>
         <p>
             Source code @ <b>github</b>
         </p>
-        <p>Experience</p>
+    <h2>- Experience -</h2>
         <ul>
             <li><b>Wimse</b> founder and freelancer - 2014 until present</li>
             <li><b>NIPO</b> junior front-end developer - 2013</li>
         </ul>
-        <p>Education</p>
+        <h2>- Education -</h2>
         <ul>
             <li><b>YHK</b> web development, 2011 to 2013</li>
             <li><b>Nackademin</b> virtualizering, 2009 to 2010</li>
         </ul>
+    </div>
 `
 var nackademin = `
     <p>This polytechnic gave me comprehensive skills to work with servers,
@@ -79,15 +81,15 @@ var nipo = `
     I was in charge of developing a mockup for a new front-end system in the dot Net environment.</p>
 `
 var projects = `
-    <p>Projects </p>
+    <h2>- Projects -</h2>
     <ul>
         <li><b>andreeray.se</b> -  This site. <small>(HTML5, CSS JS (React))</small>
         <li><b>wimse.se</b> - creative web agency <small>(HTML5, CSS JS (Jekyll))</small>
         <li><b>nautkoncept.se</b> -  Strategy consultancy. <small>(HTML5, CSS JS (Jekyll))</small>
-        <li><b>yoolio.se</b> -  Marketplace for digital solutions. <small>(HTML5, CSS JS (Vanilla, Rails))</small>
-        <li><b>bolagslistan.nu</b> -  News letter regardign new businesses. <small>(HTML5, CSS JS (Vanilla, Rails))</small>
+        <li><b>yoolio.se</b> -  Marketplace for digital solutions. <small>(HTML5, CSS JS (Rails))</small>
+        <li><b>bolagslistan.nu</b> -  News letter regardign new businesses. <small>(HTML5, CSS JS (Rails))</small>
     </ul>
-    <p><small>Please visit </small><b>github</b> <small>to check out source code.</small></p>
+    <p>Please visit <b>github</b> to check out source code.</p>
 `
 var help = `
     <ul><b>
@@ -110,10 +112,10 @@ function fakeAPI (cmd, cb) {
     if (cmd === 'presentation') return cb(undefined,presentation)
     else if (cmd ==='guide' || cmd === '?' || cmd === 'help') return cb(undefined, guide)
     else if (cmd ==='cat' || cmd === 'categories' || cmd === 'nav' || cmd === 'navigation' || cmd === 'home' || cmd === 'index') return cb(undefined, cat)
-    else if (cmd ==='resume' || cmd === 'cv') return cb(undefined, resume)
+    else if (cmd ==='resume' || cmd === 'cv' || cmd === 'stack' || cmd === 'experience'|| cmd === 'education') return cb(undefined, resume)
     else if (cmd ==='nackademin') return cb(undefined, nackademin)
     else if (cmd ==='yhk') return cb(undefined, yhk)
-    else if (cmd ==='projects' || cmd === 'project') return cb(undefined, projects)
+    else if (cmd ==='projects' || cmd === 'project' || cmd === 'projekt' || cmd === 'projekts') return cb(undefined, projects)
     else if (cmd ==='about') return cb(undefined, about)
     else if (cmd ==='contact' | cmd === 'email') return cb(undefined, contact)
     else if (cmd ==='wimse') return cb(undefined, wimse)

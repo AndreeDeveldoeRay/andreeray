@@ -1,0 +1,124 @@
+/**
+* @Author: Andreee Ray <develdoe>
+* @Date:   2017-03-11T21:23:10+01:00
+* @Email:  me@andreeray.se
+* @Filename: terminal.css
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-12T15:39:29+01:00
+*/
+
+#status{
+    position: fixed;
+    top:10px;
+    left:10px;
+    font-size: 12px;
+}
+
+#terminal{
+    z-index: 1;
+    position: relative;
+    height: 100%;
+    background-size:cover;
+    font: 36px monospace;
+    font-weight: 300;
+    color: #bceaff;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    letter-spacing: 2px;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: rgba(0, 151, 199,0.9) 0px 0px 8px;
+}
+
+
+#screen{
+    background: rgba(8, 34, 45, .5) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAD0lEQVQIW2NkQABjRmQOAAM+AGkQsDBSAAAAAElFTkSuQmCC) repeat;
+    width: 100%;
+    height: 100%;
+}
+
+
+*:focus {
+    outline: none;
+}
+
+p {
+   margin-bottom: 1rem;
+   text-rendering: optimizeLegibility;
+}
+
+b, strong {
+    font-weight: 700;
+}
+
+ol, ul {
+    margin-left: 40px;
+    margin-bottom: 1rem;
+}
+#resume {
+    font-size: 60%;
+}
+#resume h2{
+    font-size: 140%;
+    margin-bottom: 1rem;
+}
+input {
+    width: 100%;
+    background: transparent;
+    border:none;
+    font: 36px monospace;
+    font-weight: 700;
+    color: #bceaff;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    opacity: 0.9;
+    font-family: Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    letter-spacing: 2px;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: rgba(0, 151, 199,0.9) 0px 0px 8px;
+}
+
+#status ul {
+    margin: 0;
+    position: relative;
+}
+.status {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.blink {
+    animation-duration: .2s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    #terminal{
+        font: 26px monospace;
+    }
+    #output{
+        height: 85%;
+    }
+
+    #output, #input {
+        padding: 10% 5% 0 5%;
+    }
+    #input{
+        height: 15%;
+        padding: 10% 5%;
+    }
+    input {
+        font: 26px monospace;
+    }
+}

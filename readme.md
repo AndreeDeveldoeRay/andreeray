@@ -4,7 +4,7 @@
 @Email:  me@andreeray.se
 @Filename: readme.md
 @Last modified by:   develdoe
-@Last modified time: 2017-03-10T04:19:07+01:00
+@Last modified time: 2017-03-10T16:46:02+01:00
 -->
 
 
@@ -23,7 +23,6 @@ Redux integration
 * Redux
  * user name
  * contact feature
- * page history & cmd history
 
 * Modal feature
  * inform about temperatur
