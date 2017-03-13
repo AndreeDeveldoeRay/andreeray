@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-13T14:44:38+01:00
+* @Last modified time: 2017-03-13T15:47:00+01:00
 */
 
 var React = require('react'),
@@ -26,6 +26,8 @@ var terminal = React.createClass({
             speed: 55,
             isFetching: true
         }
+        // Set entry location
+        store.dispatch(actions.addLocation('presentation'))
     },
     componentDidMount: function () {
 

@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-13T14:44:01+01:00
+* @Last modified time: 2017-03-13T15:46:52+01:00
 */
 
 
@@ -17,17 +17,21 @@ var React    = require('react'),
 
 import Terminal from 'terminal'
 
+console.log('bootstraping application')
+
+// inject splash information
 var ul = document.getElementById('application-status');
 ul.innerHTML = '<li>Loading </li>'
 var li = document.createElement("li");
 li.appendChild(document.createTextNode(''));
 li.innerHTML = 'Scripting <span class="blink">.</span>'
 ul.appendChild(li);
+//
 
 store.subscribe(() => {});
+
+// update splash
 store.dispatch(actions.addStatus('Rendering'))
-console.log('bootstraping application')
-store.dispatch(actions.addLocation('presentation'))
 
 
 require('style!css!sass!styles')
