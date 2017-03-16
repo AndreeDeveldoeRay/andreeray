@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-13T15:47:00+01:00
+* @Last modified time: 2017-03-16T09:26:48+01:00
 */
 
 var React = require('react'),
@@ -26,17 +26,12 @@ var terminal = React.createClass({
             speed: 55,
             isFetching: true
         }
-        // Set entry location
-        store.dispatch(actions.addLocation('presentation'))
     },
     componentDidMount: function () {
 
         var that = this
         var term = this.refs.terminal
-        var cmd = this.state.cmd
-
-        // If there is no command then asume that the user is a new user
-        if (!cmd) cmd = 'presentation'
+        var {dispatch} = this.props
 
         // Setting the background image
         // Progressivly getting better quality images
@@ -55,14 +50,11 @@ var terminal = React.createClass({
             that.props.dispatch(actions.addStatus('idle'))
             term.style.backgroundImage = "url(" + img3.src + ")";
             that.setState({ isFetching: false })
-            that.handleInput(cmd)
+            that.handleInput('presentation')
 
             // Start Fetching better quality images
             img2.src = "/img/bg2.gif";
         }
-
-
-
 
         img2.onload = function() {
             term.style.backgroundImage = "url(" + img2.src + ")";
@@ -79,7 +71,6 @@ var terminal = React.createClass({
     componentDidUpdate: function () {
 
         var that = this
-
         var {isPrinting} = this.props
 
         if(isPrinting) {
@@ -94,42 +85,75 @@ var terminal = React.createClass({
         child.style.paddingRight = child.offsetWidth - child.clientWidth + 10 + "px";
         child.scrollTop += 10;
     },
-    handleInput: function (cmd) {
+    handleInput: function (input) {
 
-        var that = this,
-            cmd = cmd.toLowerCase()
+        var that = this
+        var {dispatch, history} = this.props
 
-        //if github then don't do any other executing
-        if (cmd === 'github'){
-            window.open('https://github.com/AndreeDeveldoeRay', '_blank')
-        } else if (cmd === 'nautkoncept.se') {
-            window.open('http://nautkoncept.se')
-        } else if (cmd === 'andreeray.se') {
-            window.open('https://github.com/AndreeDeveldoeRay/andreeray.se')
-        } else if (cmd === 'wimse.se') {
-            window.open('http://wimse.se')
-        } else if (cmd === 'yoolio.se') {
-            window.open('http://yoolio.se')
-        } else if (cmd === 'bolagslistan.nu') {
-            window.open('http://bolagslistan.nu')
-        } else if (!( /^\s*$/.test(cmd) || cmd === location)) { // empty string?
+        console.log('############ INPUT #################')
 
-            //Set new states and clear output
-            that.setState({
-                output: "",
-                speed: 55
-            })
+        console.log("history",history)
+        var backlink = history[history.length-2]
+        console.log("backlink", backlink)
 
 
-            // Get the output from the API
-            // NOTE: this is just a mock api.
-            api.getResponse(cmd).then(function (res){
-                that.print(res)
-            }, function (err) {
-                that.print(err)
-            })
+        // input = "   Hello  Dear friend  " => ["Hello", "Dear", "friend"]
+        var commandsSanitized = input.trim().replace(/\s+/g,' ').toLowerCase().split(' ')
+        // console.log("commandsSanitized", commandsSanitized)
 
+        // Should be list of available commands
+        // TODO get this list from store
+        var re = /presentation|cat|guide|categories|projects|project|projekt|projekts|contact|about|resume|back|wimse|nipo|yhk|jensen|github|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu/ig
+        // Create a new array with valid commands
+        var commandsFound = commandsSanitized.filter((cmd) => { if (cmd.search(re) === 0) return cmd })
+        console.log("commandsFound", commandsFound)
+
+        var command = commandsFound[0]
+        console.log("command", command)
+
+        // TODO hook up the array from above
+        // change the quick fix below (should not just take the first command in the array)
+        // if there is more than one command, user should be asked to select one of them.
+
+        if (location !== command || backlink === undefined) {
+            switch (command)
+            {
+                case 'back':
+                    if (backlink === undefined) break;
+                    api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
+                    dispatch(actions.addLocation(backlink))
+                    console.log(backlink)
+                    break;
+                case 'github':
+                    window.open('https://github.com/AndreeDeveldoeRay', '_blank')
+                    break;
+                case 'nautkoncept.se':
+                    window.open('http://nautkoncept.se');
+                    break;
+                case 'andreeray.se':
+                    window.open('https://github.com/AndreeDeveldoeRay/andreeray')
+                    break;
+                case 'wimse.se':
+                    window.open('http://wimse.se')
+                    break;
+                case 'yoolio.se':
+                    window.open('http://yoolio.se')
+                    break;
+                case 'bolagslistan.nu':
+                    window.open('http://bolagslistan.nu')
+                    break;
+                default:
+                    that.setState({ output: "", speed: 55 })
+                    api.getResponse(command).then(function (res){
+                        that.print(res)
+                        dispatch(actions.addLocation(command))
+                    }, function (err) {
+                        that.print(err)
+                    })
+
+            }
         }
+
     },
     // This function prints one letter at a time
     // TODO this function needs optimizing. Speed changes should only be updated if changes are made.
@@ -272,6 +296,7 @@ export default connect(
     (state) => {
         return {
             isPrinting: state.isPrinting,
+            history: state.history,
             status: state.status
         }
     }

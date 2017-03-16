@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-13T15:46:52+01:00
+* @Last modified time: 2017-03-16T07:20:50+01:00
 */
 
 
@@ -17,7 +17,20 @@ var React    = require('react'),
 
 import Terminal from 'terminal'
 
-console.log('bootstraping application')
+console.log(`%c/**
+* @Author: Andreee Ray <DevelDoe>
+* @Date:   2017-02-18T23:58:38+01:00
+* @Email:  me@andreeray.se
+* @Site:   andreeray.se
+* @Last modified by:   develdoe
+* @Last modified time: 2017-03-16T07:20:50+01:00
+* ##############################################/
+
+%cHi, Welcome under the hood of this site!
+My name is Andree and I am a front end developer.
+To day (spring 2017) I develop using HTML CSS and JavaScript.
+My framework och choice is React. If you like to get in touch,
+please contact me at the email you find above. Many best wishes / DevelDoe. `,'color: orange','color: #ddf4ff')
 
 // inject splash information
 var ul = document.getElementById('application-status');
@@ -36,11 +49,5 @@ store.dispatch(actions.addStatus('Rendering'))
 
 require('style!css!sass!styles')
 
-setTimeout(function(){
-    ReactDOM.render(
-        <Provider store={store}>
-            <Terminal/>
-        </Provider>,
-        document.getElementById('app')
-    )
-}, 2000);
+
+ReactDOM.render(<Provider store={store}><Terminal/></Provider>,document.getElementById('app'))

@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Input.jsx
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-12T15:02:47+01:00
+* @Last modified time: 2017-03-16T08:25:52+01:00
 */
 
 
@@ -18,13 +18,13 @@ export var input = React.createClass({
         e.preventDefault()
 
         var input = this.refs.input.value
-        var {dispatch} = this.props
 
-        if (input.length > 0) {
+        var re = /\S+/  // blank string
+
+
+        if (input.length > 0 && re.test(input)) {
             this.refs.input.value = ""
             this.props.onInput(input)
-            // TODO: check if valid location before adding to history
-            dispatch(actions.addLocation(input))
         } else {
             this.refs.input.focus()
         }

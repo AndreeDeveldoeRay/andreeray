@@ -4,9 +4,20 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
 * @Last modified by:   develdoe
-* @Last modified time: 2017-03-11T21:32:49+01:00
+* @Last modified time: 2017-03-16T09:33:49+01:00
 */
 
+// TODO: instead of strings use arrays with objects containting records
+// a record could look something like
+// {
+//  id: 'sdfg'
+//  text: 'sdfgfdsg'
+//  html: 'paragraph'
+// }
+//
+//  This would better the application greatly, by several facors, for example.
+//  We can render html markup by looking at the html propery, this would speed up
+//  the process of render html markup, since it would not have to animate it anymore.
 
 var presentation = `
     <p>Hi and welcome, I am DevelBot, a bot here to guide you on how to use this system.
@@ -35,10 +46,9 @@ var resume = `
             <li>CSS3</li>
             <li>JavaScript ES2015</li>
         </ul>
-        <p>
-            <span class="block">Main: Foundation | Jekyll | Webpack | Node | React</span>
-            <span class="block">Past: XHTML | PHP | Drupal (PHP) | ROR (Ruby) | jQuery | Dot Net (C#)</span>
-        </p>
+        <p><small>
+            React | Redux | Node | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jquery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha
+        </small></p>
         <p>
             Source code @ <b>github</b>
         </p>
@@ -50,11 +60,11 @@ var resume = `
         <h2>- Education -</h2>
         <ul>
             <li><b>YHK</b> web development, 2011 to 2013</li>
-            <li><b>Nackademin</b> virtualizering, 2009 to 2010</li>
+            <li><b>Jensenwimse.</b> virtualizering, 2009 to 2010</li>
         </ul>
     </div>
 `
-var nackademin = `
+var jensen = `
     <p>This polytechnic gave me comprehensive skills to work with servers,
     networking, and virtualization technologies. The Training content was
     developed in cooperation with regional companies and government agencies
@@ -102,10 +112,13 @@ var help = `
         <li>back
     </ul></b>
 `
+var contact = `
+    <p>Andree does not seem to be online at the moment... Why don't you try emailing him at me@andreeray.se.</p>
+    <p>Or, if its urgent you can give him a buzz at +46708689241</p>
+`
 var quit = "By for now, please visit us again!",
     hello = 'Hello',
     thx = "I am glad you are happy with my services.",
-    contact = "<p>You can email me at me@andreeray.se</p>",
     fuck = "<p>That's totally uncalled for</p>"
 
 function fakeAPI (cmd, cb) {
@@ -113,7 +126,7 @@ function fakeAPI (cmd, cb) {
     else if (cmd ==='guide' || cmd === '?' || cmd === 'help') return cb(undefined, guide)
     else if (cmd ==='cat' || cmd === 'categories' || cmd === 'nav' || cmd === 'navigation' || cmd === 'home' || cmd === 'index') return cb(undefined, cat)
     else if (cmd ==='resume' || cmd === 'cv' || cmd === 'stack' || cmd === 'experience'|| cmd === 'education') return cb(undefined, resume)
-    else if (cmd ==='nackademin') return cb(undefined, nackademin)
+    else if (cmd ==='jensen') return cb(undefined, jensen)
     else if (cmd ==='yhk') return cb(undefined, yhk)
     else if (cmd ==='projects' || cmd === 'project' || cmd === 'projekt' || cmd === 'projekts') return cb(undefined, projects)
     else if (cmd ==='about') return cb(undefined, about)
