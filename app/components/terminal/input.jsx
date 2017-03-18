@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Input.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:40:27+01:00
+ * @Last modified time: 2017-03-18T04:44:31+01:00
 */
 
 
@@ -39,8 +39,6 @@ export var input = React.createClass({
         var that = this
 
         var {isPrinting, status} = this.props
-
-        console.log(status[status.length-1])
 
         function renderInput () {
             if (status[status.length-1].status === "idle" ){
