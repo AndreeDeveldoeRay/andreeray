@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:48:48+01:00
+ * @Last modified time: 2017-03-18T05:13:09+01:00
 */
 
 
@@ -23,15 +23,15 @@ console.log(`
  * @Date:    2017-02-18T23:58:38+01:00
  * @Email:   me@andreeray.se
  * @Site:    andreeray.se
- * @Version: 1.6.55
+ * @Version: 1.6.56
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:48:48+01:00
+ * @Last modified time: 2017-03-18T05:13:09+01:00
 ##############################################
 
 %cPRESENTATION################################
-Welcome to Devel Devils hood...
-I am DevelDoe, a HTML CSS and JavaScript front
-end ninja. This site it built using React & Redux.
+Welcome! I am the Devel, a HTML CSS and
+JavaScript ninja @ Devel Devils.
+This site it built using React & Redux.
 If you like to get in touch, please contact me at
 the email above. Many best wishes / DevelDoe.
 ##############################################

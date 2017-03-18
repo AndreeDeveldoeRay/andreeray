@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:51:53+01:00
+ * @Last modified time: 2017-03-18T05:13:00+01:00
 */
 
 // TODO: instead of strings use arrays with objects containting records
@@ -47,7 +47,7 @@ var resume = `
             <li>JavaScript ES2015</li>
         </ul>
         <p><small>
-            React | Redux | Node | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jQuery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha | DraftJS 
+            React | Redux | Node | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jQuery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha | DraftJS
         </small></p>
         <p>
             Source code @ <b>github</b>
@@ -60,7 +60,7 @@ var resume = `
         <h2>- Education -</h2>
         <ul>
             <li><b>YHK</b> web development, 2011 to 2013</li>
-            <li><b>Jensenwimse.</b> virtualizering, 2009 to 2010</li>
+            <li><b>Jensen.</b> virtualizering, 2009 to 2010</li>
         </ul>
     </div>
 `
