@@ -3,8 +3,8 @@
 * @Date:   2017-03-11T21:23:10+01:00
 * @Email:  me@andreeray.se
 * @Filename: terminal.css
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-16T05:24:12+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-18T03:56:19+01:00
 */
 
 #status{
@@ -68,7 +68,7 @@ input {
     border:none;
     font: 36px monospace;
     font-weight: 700;
-    color: #bceaff;
+    color: #ddf4ff;
     line-height: 1.6;
     text-rendering: optimizeLegibility;
     opacity: 0.9;

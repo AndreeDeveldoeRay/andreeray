@@ -1,6 +1,6 @@
 {
   "name": "andreeray",
-  "version": "1.9.0",
+  "version": "1.7.0",
   "description": "My resume bot site",
   "main": "index.js",
   "scripts": {

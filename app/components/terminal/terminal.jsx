@@ -3,8 +3,8 @@
 * @Date:   2017-02-18T23:58:38+01:00
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-16T09:26:48+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-18T03:33:18+01:00
 */
 
 var React = require('react'),
@@ -85,40 +85,50 @@ var terminal = React.createClass({
         child.style.paddingRight = child.offsetWidth - child.clientWidth + 10 + "px";
         child.scrollTop += 10;
     },
+    // Handles the input.
+    // First sanitizes and collect the command.
+    // then switch check for come edge cases
+    // before api.getResponse
     handleInput: function (input) {
 
+        // inital states
         var that = this
         var {dispatch, history} = this.props
 
-        console.log('############ INPUT #################')
+        // start debugging
+        console.log('------------INPUT----------->')
+        console.log('input:',input)
 
-        console.log("history",history)
-        var backlink = history[history.length-2]
-        console.log("backlink", backlink)
+        // navigate back link
+        var backlink = history[history.length-1]
+        console.log("backlink:", backlink)
 
+        // search and retrieve command from the input string:
+        // TODO: Should retrieve this list from database.
+        var re = /(presentation|cat|guide|categories|projects|cmd|commands|project|projekt|projekts|contact|about|resume|back|\.\.|wimse|nipo|yhk|jensen|github|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu)/ig
+        // match regex, returns an array
+        var commands = input.match(re)
+        console.log("commands:", commands)
+        // check so that the command is not null and
+        // grab the first one. Later this could
+        // be changed to ask the user wich to execute
+        if (commands !== null) var command = commands[0]
+        // debug
+        console.log("command:", command)
+        // ###################################################
 
-        // input = "   Hello  Dear friend  " => ["Hello", "Dear", "friend"]
-        var commandsSanitized = input.trim().replace(/\s+/g,' ').toLowerCase().split(' ')
-        // console.log("commandsSanitized", commandsSanitized)
-
-        // Should be list of available commands
-        // TODO get this list from store
-        var re = /presentation|cat|guide|categories|projects|project|projekt|projekts|contact|about|resume|back|wimse|nipo|yhk|jensen|github|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu/ig
-        // Create a new array with valid commands
-        var commandsFound = commandsSanitized.filter((cmd) => { if (cmd.search(re) === 0) return cmd })
-        console.log("commandsFound", commandsFound)
-
-        var command = commandsFound[0]
-        console.log("command", command)
-
-        // TODO hook up the array from above
-        // change the quick fix below (should not just take the first command in the array)
-        // if there is more than one command, user should be asked to select one of them.
-
+        // First edge cases then default ask the api for a
+        // response to print
         if (location !== command || backlink === undefined) {
             switch (command)
             {
                 case 'back':
+                    if (backlink === undefined) break;
+                    api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
+                    dispatch(actions.addLocation(backlink))
+                    console.log(backlink)
+                    break;
+                case '..':
                     if (backlink === undefined) break;
                     api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
                     dispatch(actions.addLocation(backlink))

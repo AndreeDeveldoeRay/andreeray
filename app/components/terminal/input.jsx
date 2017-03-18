@@ -3,8 +3,8 @@
 * @Date:   2017-02-19T19:40:46+01:00
 * @Email:  me@andreeray.se
 * @Filename: Input.jsx
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-16T08:25:52+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-17T23:32:04+01:00
 */
 
 
@@ -19,8 +19,7 @@ export var input = React.createClass({
 
         var input = this.refs.input.value
 
-        var re = /\S+/  // blank string
-
+        var re = /\S+/  //find a non-whitespace character and match any string that contains at leas one
 
         if (input.length > 0 && re.test(input)) {
             this.refs.input.value = ""

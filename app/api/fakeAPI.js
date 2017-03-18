@@ -3,8 +3,8 @@
 * @Date:   2017-02-19T10:34:13+01:00
 * @Email:  me@andreeray.se
 * @Filename: Store.js
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-16T09:33:49+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-18T01:13:22+01:00
 */
 
 // TODO: instead of strings use arrays with objects containting records
@@ -47,7 +47,7 @@ var resume = `
             <li>JavaScript ES2015</li>
         </ul>
         <p><small>
-            React | Redux | Node | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jquery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha
+            React | Redux | Node | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jquery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha | DraftJS | Firebase
         </small></p>
         <p>
             Source code @ <b>github</b>
