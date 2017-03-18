@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:38:38+01:00
+ * @Last modified time: 2017-03-19T00:00:27+01:00
 */
 
 var React = require('react'),
@@ -21,13 +21,13 @@ import Status from 'Status'
 
 
 var terminal = React.createClass({
-    getInitialState: function () {
+    getInitialState () {
         return {
             speed: 55,
             backlink: undefined
         }
     },
-    componentDidMount: function () {
+    componentDidMount () {
 
         var that = this
         var term = this.refs.terminal
@@ -67,7 +67,7 @@ var terminal = React.createClass({
             term.style.backgroundImage = "url(" + img.src + ")";
         }
     },
-    componentDidUpdate: function () {
+    componentDidUpdate () {
 
         var that = this
         var {isPrinting, history} = this.props
@@ -89,7 +89,7 @@ var terminal = React.createClass({
     // First sanitizes and collect the command.
     // then switch check for come edge cases
     // before api.getResponse
-    handleInput: function (input) {
+    handleInput (input) {
 
         // inital states
         var that = this
@@ -121,11 +121,13 @@ var terminal = React.createClass({
                 case 'back':
                     if (backlink === undefined) break;
                     api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
+                    if (history.length > 0) that.setState({ backlink: history[history.length-1] })
                     dispatch(actions.addLocation(backlink))
                     break;
                 case '..':
                     if (backlink === undefined) break;
                     api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
+                    if (history.length > 0) that.setState({ backlink: history[history.length-1] })
                     dispatch(actions.addLocation(backlink))
                     console.log(backlink)
                     break;
@@ -167,7 +169,7 @@ var terminal = React.createClass({
     // Using redux hare is a terible idea sinc this would lead to a big overhead. Maybe if one
     // manages to only set actions if changes are made it might be an idea, however its propbobly a better idea to just
     // use local variables anyway since you don't need the speed state anywhere else.
-    print: function (output) {
+    print (output) {
 
         var {dispatch} = this.props
 
@@ -180,9 +182,6 @@ var terminal = React.createClass({
             htmlMarkup      = "",               // html markup is stored in this variable
             speed           = this.state.speed
 
-
-
-
         // traverse the otuput string
         // clearing
         var traverse = function(){
@@ -190,8 +189,6 @@ var terminal = React.createClass({
             if (output.charAt(i) === '<') html = true // check for start of html markup
 
             if (html){
-
-
 
                 htmlMarkup += output.charAt(i)
 
@@ -250,12 +247,12 @@ var terminal = React.createClass({
             }
         }
     },
-    handleClick: function (e){
+    handleClick (e) {
         this.setState({
            speed: 5
        })
     },
-    render: function () {
+    render () {
         var {output,isFetching} = this.state
         var {status} = this.props
 

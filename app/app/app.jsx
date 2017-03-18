@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T05:13:09+01:00
+ * @Last modified time: 2017-03-19T00:01:03+01:00
 */
 
 
@@ -23,9 +23,9 @@ console.log(`
  * @Date:    2017-02-18T23:58:38+01:00
  * @Email:   me@andreeray.se
  * @Site:    andreeray.se
- * @Version: 1.6.56
+ * @Version: 1.6.57
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T05:13:09+01:00
+ * @Last modified time: 2017-03-19T00:01:03+01:00
 ##############################################
 
 %cPRESENTATION################################
