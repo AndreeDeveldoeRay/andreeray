@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:33:57+01:00
+ * @Last modified time: 2017-03-18T04:38:38+01:00
 */
 
 var React = require('react'),
@@ -292,7 +292,7 @@ var terminal = React.createClass({
                         </div>
                     </div>
                 </div>
-                 <Input onInput={this.handleInput} isFetching={isFetching} />
+                 <Input onInput={this.handleInput} status={this.status} />
             </div>
             {renderStatus()}
         </div>)

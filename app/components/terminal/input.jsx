@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Input.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-17T23:32:04+01:00
+ * @Last modified time: 2017-03-18T04:40:27+01:00
 */
 
 
@@ -38,10 +38,12 @@ export var input = React.createClass({
 
         var that = this
 
-        var {isPrinting, isFetching} = this.props
+        var {isPrinting, status} = this.props
+
+        console.log(status[status.length-1])
 
         function renderInput () {
-            if (!isFetching){
+            if (status[status.length-1].status === "idle" ){
                 if (!isPrinting) {
                     return <input type="text" ref="input" autoFocus/>
                 } else {
