@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T03:33:18+01:00
+ * @Last modified time: 2017-03-18T04:01:23+01:00
 */
 
 var React = require('react'),
@@ -100,7 +100,7 @@ var terminal = React.createClass({
         console.log('input:',input)
 
         // navigate back link
-        var backlink = history[history.length-1]
+        var backlink = history[history.length-2]
         console.log("backlink:", backlink)
 
         // search and retrieve command from the input string:
