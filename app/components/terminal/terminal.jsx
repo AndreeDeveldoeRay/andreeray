@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:01:23+01:00
+ * @Last modified time: 2017-03-18T04:33:57+01:00
 */
 
 var React = require('react'),
@@ -24,7 +24,7 @@ var terminal = React.createClass({
     getInitialState: function () {
         return {
             speed: 55,
-            isFetching: true
+            backlink: undefined
         }
     },
     componentDidMount: function () {
@@ -49,7 +49,6 @@ var terminal = React.createClass({
             // Booting
             that.props.dispatch(actions.addStatus('idle'))
             term.style.backgroundImage = "url(" + img3.src + ")";
-            that.setState({ isFetching: false })
             that.handleInput('presentation')
 
             // Start Fetching better quality images
@@ -71,7 +70,8 @@ var terminal = React.createClass({
     componentDidUpdate: function () {
 
         var that = this
-        var {isPrinting} = this.props
+        var {isPrinting, history} = this.props
+
 
         if(isPrinting) {
             mousetrap.bind([`enter`], function() {
@@ -93,15 +93,12 @@ var terminal = React.createClass({
 
         // inital states
         var that = this
-        var {dispatch, history} = this.props
+        var {dispatch,history} = this.props
+        var {backlink} = this.state
 
         // start debugging
-        console.log('------------INPUT----------->')
+        console.log('INPUT----------------------->')
         console.log('input:',input)
-
-        // navigate back link
-        var backlink = history[history.length-2]
-        console.log("backlink:", backlink)
 
         // search and retrieve command from the input string:
         // TODO: Should retrieve this list from database.
@@ -116,7 +113,6 @@ var terminal = React.createClass({
         // debug
         console.log("command:", command)
         // ###################################################
-
         // First edge cases then default ask the api for a
         // response to print
         if (location !== command || backlink === undefined) {
@@ -126,7 +122,6 @@ var terminal = React.createClass({
                     if (backlink === undefined) break;
                     api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
                     dispatch(actions.addLocation(backlink))
-                    console.log(backlink)
                     break;
                 case '..':
                     if (backlink === undefined) break;
@@ -156,6 +151,8 @@ var terminal = React.createClass({
                     that.setState({ output: "", speed: 55 })
                     api.getResponse(command).then(function (res){
                         that.print(res)
+                        // navigate back link
+                        if (history.length > 0) that.setState({ backlink: history[history.length-1] })
                         dispatch(actions.addLocation(command))
                     }, function (err) {
                         that.print(err)
