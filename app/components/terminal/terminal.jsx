@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T00:00:27+01:00
+ * @Last modified time: 2017-03-19T22:10:46+01:00
 */
 
 var React = require('react'),
@@ -24,7 +24,8 @@ var terminal = React.createClass({
     getInitialState () {
         return {
             speed: 55,
-            backlink: undefined
+            backlink: undefined,
+            location: 'presentation'
         }
     },
     componentDidMount () {
@@ -94,7 +95,7 @@ var terminal = React.createClass({
         // inital states
         var that = this
         var {dispatch,history} = this.props
-        var {backlink} = this.state
+        var {backlink,location} = this.state
 
         // start debugging
         console.log('INPUT----------------------->')
@@ -102,7 +103,7 @@ var terminal = React.createClass({
 
         // search and retrieve command from the input string:
         // TODO: Should retrieve this list from database.
-        var re = /(presentation|cat|guide|categories|projects|cmd|commands|project|projekt|projekts|contact|about|resume|back|\.\.|wimse|nipo|yhk|jensen|github|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu)/ig
+        var re = /(presentation|guide|\?|help|hjälp|categories|cat|nav|navigation|home|hem|index|projects|project|projekts|projekt|cmd|commands|kommandon|project|projekt|projekts|contact|kontakta|kontakt|about|resume|cv|stack|experience|education|back|\.\.|wimse|nipo|kyh|jensen|quit|exit|hi|hello|hej|good|fine|bad|awefull|shit|fuck|fuck you|github|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu)/ig
         // match regex, returns an array
         var commands = input.match(re)
         console.log("commands:", commands)
@@ -115,20 +116,23 @@ var terminal = React.createClass({
         // ###################################################
         // First edge cases then default ask the api for a
         // response to print
+        console.log("location:", location)
         if (location !== command || backlink === undefined) {
             switch (command)
             {
                 case 'back':
                     if (backlink === undefined) break;
-                    api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
+                    that.print(api.getResponse(backlink))
                     if (history.length > 0) that.setState({ backlink: history[history.length-1] })
+                    console.log("backlink", backlink)
+                    console.log("location", location)
                     dispatch(actions.addLocation(backlink))
                     break;
                 case '..':
                     if (backlink === undefined) break;
-                    api.getResponse(backlink).then(function (res){ that.print(res) }, function (err) { that.print(err) })
+                    that.print(api.getResponse(backlink))
                     if (history.length > 0) that.setState({ backlink: history[history.length-1] })
-                    dispatch(actions.addLocation(backlink))
+                    if (backlink !== location) dispatch(actions.addLocation(backlink))
                     console.log(backlink)
                     break;
                 case 'github':
@@ -151,15 +155,12 @@ var terminal = React.createClass({
                     break;
                 default:
                     that.setState({ output: "", speed: 55 })
-                    api.getResponse(command).then(function (res){
-                        that.print(res)
-                        // navigate back link
-                        if (history.length > 0) that.setState({ backlink: history[history.length-1] })
-                        dispatch(actions.addLocation(command))
-                    }, function (err) {
-                        that.print(err)
+                    that.print(api.getResponse(command))
+                    if (history.length > 0) that.setState({ backlink: history[history.length-1] })
+                    dispatch(actions.addLocation(command))
+                    that.setState({
+                        location: command
                     })
-
             }
         }
 

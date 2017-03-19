@@ -4,29 +4,25 @@
 * @Email:  me@andreeray.se
 * @Filename: Api.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T20:29:51+01:00
+ * @Last modified time: 2017-03-19T21:52:32+01:00
 */
 
 
 
-var fakeAPI = require('fakeApi'), Promise = require('es6-promise').Promise;
+var data = require('fakeApi')
 
-var array = [
-    {
-        command: 'presentation',
-        response: 'this is the presentation'
-    },{
-
-    }
-]
 
 module.exports = {
-    getResponse: function (cmd) {
-        return new Promise(function (resolve, reject) {
-            fakeAPI(cmd, function(err,msg) {
-                if (err){ reject(err) }
-                else { resolve(msg) }
+    getResponse: function (command) {
+        var response = data.find((item) => {
+            var commands = item.commands
+            var res = commands.find((cmd) => {
+                return cmd === command
             })
+            return res
         })
+
+        if (response) return response.response
+        else return 'That command does not exist! To list basic commands execute <b>commands</b> (or <b>cmd</b>) in the cmd field below.'
     }
 }
