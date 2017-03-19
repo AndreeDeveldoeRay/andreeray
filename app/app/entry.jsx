@@ -4,18 +4,8 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T00:04:34+01:00
+ * @Last modified time: 2017-03-19T20:28:14+01:00
 */
-
-
-
-var React    = require('react'),
-    ReactDOM = require('react-dom'),
-    {Provider} = require('react-redux'),
-    store = require('store').config(),
-    actions = require('actions')
-
-import Terminal from 'terminal'
 
 console.log(`
 %cMETA########################################
@@ -23,9 +13,9 @@ console.log(`
  * @Date:    2017-02-18T23:58:38+01:00
  * @Email:   me@andreeray.se
  * @Site:    andreeray.se
- * @Version: 1.6.57
+ * @Version: 2.6.57
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T00:04:34+01:00
+ * @Last modified time: 2017-03-19T20:28:14+01:00
 ##############################################
 
 %cABOUT#######################################
@@ -40,21 +30,26 @@ the email above. Many best wishes / DevelDoe.
 ##############################################
 
 %cBACKLOG#####################################
- * 1.6 input string to command array
- * 1.7 move output state to redux
- * 1.8 change model to hold records
- * 1.9 add firebase and remove fake api
+ * 2.7 Change backend api to return an array
+ * 2.8 move output state to redux
+ * 2.9 add firebase and remove fake api
+ * 3.1 change model to hold records
 ##############################################
 
 %cDEBUGG######################################
 `,
-'color: orange',
-'color: #fc8daa',
-'color: #93dcff',
-'color: #ccc')
+'color: orange','color: #fc8daa','color: #93dcff','color: #ccc')
 
+var React    = require('react'),
+    ReactDOM = require('react-dom'),
+    {Provider} = require('react-redux'),
+    store = require('store').config(),
+    actions = require('actions')
 
-// inject splash information
+import Terminal from 'terminal'
+
+// injecting boot information since react at this
+// time does not have have control of rendering.
 var ul = document.getElementById('application-status');
 ul.innerHTML = '<li>Loading </li>'
 var li = document.createElement("li");

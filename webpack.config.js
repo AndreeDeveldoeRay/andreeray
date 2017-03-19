@@ -3,8 +3,8 @@
 * @Date:   2017-02-18T23:58:38+01:00
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
-* @Last modified by:   develdoe
-* @Last modified time: 2017-03-10T17:09:11+01:00
+ * @Last modified by:   develdoe
+ * @Last modified time: 2017-03-19T18:02:17+01:00
 */
 
 
@@ -13,7 +13,7 @@ var webpack = require('webpack')
 module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
-        './app/app/app.jsx'
+        './app/app/entry.jsx'
     ],
     externals: {
         jquery: 'jQuery'
