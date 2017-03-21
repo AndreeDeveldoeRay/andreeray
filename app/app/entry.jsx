@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T20:28:14+01:00
+ * @Last modified time: 2017-03-21T02:57:06+01:00
 */
 
 console.log(`
@@ -13,25 +13,23 @@ console.log(`
  * @Date:    2017-02-18T23:58:38+01:00
  * @Email:   me@andreeray.se
  * @Site:    andreeray.se
- * @Version: 2.6.57
+ * @Version: 2.7.5
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T20:28:14+01:00
+ * @Last modified time: 2017-03-21T02:57:06+01:00
 ##############################################
 
 %cABOUT#######################################
 Welcome! I am the Devel, a HTML CSS and
 JavaScript ninja @ Devel Devils.
 This site it built using React & Redux. The site
-is thought as a presentation for me as a developer.
-I use it to playaround with new technology and for
-the future I plan to add several new features.
+is as a presentation for me as a developer.
+I use it as a playaround for new technology.
 If you like to get in touch, please contact me at
 the email above. Many best wishes / DevelDoe.
 ##############################################
 
 %cBACKLOG#####################################
- * 2.7 Change backend api to return an array
- * 2.8 move output state to redux
+ * 2.8 output to redux
  * 2.9 add firebase and remove fake api
  * 3.1 change model to hold records
 ##############################################

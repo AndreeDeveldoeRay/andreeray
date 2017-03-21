@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Input.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-18T04:44:31+01:00
+ * @Last modified time: 2017-03-20T13:07:42+01:00
 */
 
 
@@ -18,6 +18,8 @@ export var input = React.createClass({
         e.preventDefault()
 
         var input = this.refs.input.value
+
+        input = input.toLowerCase()
 
         var re = /\S+/  //find a non-whitespace character and match any string that contains at leas one
 

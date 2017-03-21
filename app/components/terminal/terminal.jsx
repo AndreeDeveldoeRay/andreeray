@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T22:10:46+01:00
+ * @Last modified time: 2017-03-21T02:54:39+01:00
 */
 
 var React = require('react'),
@@ -112,7 +112,10 @@ var terminal = React.createClass({
         // be changed to ask the user wich to execute
         if (commands !== null) var command = commands[0]
         // debug
+        if(command === '..') command = 'back'
         console.log("command:", command)
+
+
         // ###################################################
         // First edge cases then default ask the api for a
         // response to print
@@ -122,18 +125,21 @@ var terminal = React.createClass({
             {
                 case 'back':
                     if (backlink === undefined) break;
-                    that.print(api.getResponse(backlink))
-                    if (history.length > 0) that.setState({ backlink: history[history.length-1] })
-                    console.log("backlink", backlink)
-                    console.log("location", location)
-                    dispatch(actions.addLocation(backlink))
-                    break;
-                case '..':
-                    if (backlink === undefined) break;
-                    that.print(api.getResponse(backlink))
-                    if (history.length > 0) that.setState({ backlink: history[history.length-1] })
-                    if (backlink !== location) dispatch(actions.addLocation(backlink))
-                    console.log(backlink)
+                    console.log("backlink",backlink)
+                    api.getResponse(backlink, (err,res) => {
+                        if (err) {
+                            that.print(err)
+                        } else {
+                            that.print(res)
+                            if (history.length > 0) {
+                                that.setState({
+                                    backlink: history[history.length-1],
+                                    location: backlink
+                                })
+                            }
+                            if (backlink !== location) dispatch(actions.addLocation(backlink))
+                        }
+                    })
                     break;
                 case 'github':
                     window.open('https://github.com/AndreeDeveldoeRay', '_blank')
@@ -155,11 +161,19 @@ var terminal = React.createClass({
                     break;
                 default:
                     that.setState({ output: "", speed: 55 })
-                    that.print(api.getResponse(command))
-                    if (history.length > 0) that.setState({ backlink: history[history.length-1] })
-                    dispatch(actions.addLocation(command))
-                    that.setState({
-                        location: command
+                    api.getResponse(command, (err,res) => {
+                        if (err) {
+                            that.print(err)
+                        } else {
+                            that.print(res)
+                            if (history.length > 0) {
+                                that.setState({
+                                    backlink: history[history.length-1],
+                                    location: command
+                                })
+                            }
+                            dispatch(actions.addLocation(command))
+                        }
                     })
             }
         }
