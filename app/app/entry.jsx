@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T23:52:30+02:00
+ * @Last modified time: 2017-03-28T23:59:35+02:00
 */
 
 console.log(`
@@ -13,7 +13,7 @@ console.log(`
  * @Date                : 2017-02-18T23:58:38+01:00
  * @Email               : me@andreeray.se
  * @Site                : andreeray.se
- * @Patch               : 2.7.6
+ * @Patch               : 2.7.61
  * @Last modified by    : develdoe
  * @Last modified time  : 2017-03-28T23:48:43+02:00
 ##############################################

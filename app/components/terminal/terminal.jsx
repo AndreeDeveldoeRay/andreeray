@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T23:54:51+02:00
+ * @Last modified time: 2017-03-28T23:59:22+02:00
 */
 
 var React = require('react'),
@@ -159,6 +159,12 @@ var terminal = React.createClass({
                 case 'bolagslistan.nu':
                     window.open('http://bolagslistan.nu')
                     break;
+                case 'developer.wimse.se':
+                    window.open('http://developer.wimse.se')
+                    break;
+                case 'mdn':
+                    window.open('https://developer.mozilla.org/en-US/profiles/DevelDoe')
+                    break
                 default:
                     that.setState({ output: "", speed: 55 })
                     api.getResponse(command, (err,res) => {

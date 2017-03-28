@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T23:55:22+02:00
+ * @Last modified time: 2017-03-28T23:58:20+02:00
 */
 
 // TODO: instead of strings use arrays with objects containting records
@@ -90,7 +90,7 @@ var data = [
             <h2>- Authoring -</h2>
             <ul>
                 <li><b>developer.wimse.se</b> - My day to day journal, an exelent place to get a feel for what I am researching.</li>
-                <li><b>MDN<b> - I translate JavaScript guides over at Mozilla Developer Network.</li>
+                <li><b>MDN</b> - I translate JavaScript guides over at Mozilla Developer Network.</li>
             </ul>
             <p>Please visit <b>github</b> to check out source code.</p>`
     },{
