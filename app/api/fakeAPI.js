@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T21:49:20+01:00
+ * @Last modified time: 2017-03-28T23:40:20+02:00
 */
 
 // TODO: instead of strings use arrays with objects containting records
@@ -48,7 +48,7 @@ var data = [
             All commands work no mater when you type them, so you can always come back here by executing <b>guide</b> again.</p>`
     },{
         commands: ['categories', 'cat', 'nav','navigation', 'home', 'hem', 'index'],
-        response: `<b>resume</b> | <b>projects</b> | <b>about</b> | <b>contact</b>`
+        response: `<b>resume</b> | <b>works</b> | <b>about</b> | <b>contact</b>`
     },{
         commands: ['resume', 'cv', 'stack', 'experience', 'education'],
         response: `
@@ -77,15 +77,20 @@ var data = [
                 </ul>
             </div>`
     },{
-        commands: ['projects', 'project', 'projekts', 'projekt'],
+        commands: ['projects', 'project', 'projekts', 'projekt','works','authoring','author'],
         response: `
             <h2>- Projects -</h2>
             <ul>
                 <li><b>andreeray.se</b> -  This site. <small>(HTML5, CSS JS (React))</small>
-                <li><b>wimse.se</b> - creative web agency <small>(HTML5, CSS JS (Jekyll))</small>
+                <li><b>wimse.se</b> - Creative web agency <small>(HTML5, CSS JS (Jekyll))</small>
                 <li><b>nautkoncept.se</b> -  Strategy consultancy. <small>(HTML5, CSS JS (Jekyll))</small>
                 <li><b>yoolio.se</b> -  Marketplace for digital solutions. <small>(HTML5, CSS JS (Rails))</small>
                 <li><b>bolagslistan.nu</b> -  News letter regardign new businesses. <small>(HTML5, CSS JS (Rails))</small>
+            </ul>
+            <h2>- Authoring -</h2>
+            <ul>
+                <li><b>developer.wimse.se</b> - My day to day journal, an exelent place to get a feel for what I am researching.</li>
+                <li><b>MDN<b> - I translate JavaScript guides over at Mozilla Developer Network.</li>
             </ul>
             <p>Please visit <b>github</b> to check out source code.</p>`
     },{
