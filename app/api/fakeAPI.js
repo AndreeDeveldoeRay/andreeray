@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T23:40:20+02:00
+ * @Last modified time: 2017-03-28T23:55:22+02:00
 */
 
 // TODO: instead of strings use arrays with objects containting records
@@ -107,7 +107,7 @@ var data = [
                 <li>guide
                 <li>nav
                 <li>resume
-                <li>project
+                <li>works
                 <li>contact
                 <li>back
             </ul></b>`
