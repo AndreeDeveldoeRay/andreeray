@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T23:59:22+02:00
+ * @Last modified time: 2017-03-29T00:03:21+02:00
 */
 
 var React = require('react'),
@@ -103,7 +103,7 @@ var terminal = React.createClass({
 
         // search and retrieve command from the input string:
         // TODO: Should retrieve this list from database.
-        var re = /(presentation|guide|\?|help|hjälp|categories|cat|nav|navigation|home|hem|index|projects|project|projekts|projekt|works|author|authoring|cmd|commands|kommandon|project|projekt|projekts|contact|kontakta|kontakt|about|resume|cv|stack|experience|education|back|\.\.|wimse|nipo|kyh|jensen|quit|exit|hi|hello|hej|good|fine|bad|awefull|shit|fuck|fuck you|github|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu)/ig
+        var re = /(presentation|guide|\?|help|hjälp|categories|cat|nav|navigation|home|hem|index|projects|project|projekts|projekt|works|author|authoring|cmd|commands|kommandon|project|projekt|projekts|contact|kontakta|kontakt|about|resume|cv|stack|experience|education|back|\.\.|wimse|nipo|kyh|jensen|quit|exit|hi|hello|hej|good|fine|bad|awefull|shit|fuck|fuck you|github|developer\.wimse\.se|mdn|andreeray\.se|nautkoncept\.se|yoolio\.se|bolagslistan\.nu)/ig
         // match regex, returns an array
         var commands = input.match(re)
         console.log("commands:", commands)
