@@ -4,26 +4,31 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-21T17:48:26+01:00
+ * @Last modified time: 2017-03-28T23:52:30+02:00
 */
 
 console.log(`
 %cMETA########################################
- * @Author:  Andreee Ray <DevelDoe>
- * @Date:    2017-02-18T23:58:38+01:00
- * @Email:   me@andreeray.se
- * @Site:    andreeray.se
- * @Version: 2.7.5
- * @Last modified by:   develdoe
- * @Last modified time: 2017-03-21T17:48:26+01:00
+ * @Author              : Andreee Ray <DevelDoe>
+ * @Date                : 2017-02-18T23:58:38+01:00
+ * @Email               : me@andreeray.se
+ * @Site                : andreeray.se
+ * @Patch               : 2.7.6
+ * @Last modified by    : develdoe
+ * @Last modified time  : 2017-03-28T23:48:43+02:00
 ##############################################
 
 %cABOUT#######################################
+
 Welcome! I am the Devel, a HTML CSS and
 JavaScript ninja @ Devel Devils.
-This site it built using React & Redux. The site
-is as a presentation for me as a developer.
-I use it as a playaround for new technology.
+
+The application is built with REACT, a JavaScript
+library that encapsulat components that
+manage their own state. The application also uses
+Redux to manage it's complexity.
+It is used as a playaround for new technology and
+a formal introduction.
 If you like to get in touch, please contact me at
 the email above. Many best wishes / DevelDoe.
 ##############################################
