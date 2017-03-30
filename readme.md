@@ -4,12 +4,12 @@
 @Email:  me@andreeray.se
 @Filename: readme.md
 @Last modified by:   develdoe
-@Last modified time: 2017-03-21T03:31:29+01:00
+@Last modified time: 2017-03-29T19:08:50+02:00
 -->
 
 
 
-# andreeray.se 
+# andreeray.se
 
 This is the development project for andreeray.se. This site is hosted here as a github page (andreedeveldoeray.github.io).
 
@@ -17,8 +17,6 @@ This is the development project for andreeray.se. This site is hosted here as a 
 
 Redux integration
 Firebase backend
-
-
 
 ### 3.0 and beond
 

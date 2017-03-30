@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: webpack.config.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-19T18:02:17+01:00
+ * @Last modified time: 2017-03-30T15:57:49+02:00
 */
 
 
@@ -13,7 +13,7 @@ var webpack = require('webpack')
 module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
-        './app/app/entry.jsx'
+        './app/entry'
     ],
     externals: {
         jquery: 'jQuery'
@@ -35,12 +35,12 @@ module.exports = {
             './app/components/terminal'
         ],
         alias: {
-            styles: 'app/styles/app',
-            api: 'app/api/api',
-            fakeApi: 'app/api/fakeApi',
-            store: 'app/store/store',
-            reducers: 'app/reducers/reducers',
-            actions: 'app/actions/actions'
+            styles  : 'app/styles/app',
+            develbot: 'app/api/develbot',
+            backend : 'backend.js',
+            store   : 'app/redux/store',
+            reducers: 'app/redux/reducers',
+            actions : 'app/redux/actions'
         },
         extensions: ['','.js','.jsx','.scss']
     },

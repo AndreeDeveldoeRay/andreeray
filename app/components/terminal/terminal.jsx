@@ -4,12 +4,12 @@
 * @Email:  me@andreeray.se
 * @Filename: Main.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-29T00:03:21+02:00
+ * @Last modified time: 2017-03-30T16:23:37+02:00
 */
 
 var React = require('react'),
     ReactDOM = require('react-dom'),
-    api = require('api'),
+    develbot = require('develbot'),
     mousetrap = require('mousetrap'),
     {connect} = require('react-redux'),
     actions = require('actions')
@@ -32,7 +32,7 @@ var terminal = React.createClass({
 
         var that = this
         var term = this.refs.terminal
-        var {dispatch} = this.props
+        var {dispatch, appName} = this.props
 
         // Setting the background image
         // Progressivly getting better quality images
@@ -43,12 +43,14 @@ var terminal = React.createClass({
 
         img3.src = "/img/bg3.gif";
         this.props.dispatch(actions.addStatus('Painting'))
+        document.title = appName + ': ' + 'Painting'
 
 
         img3.onload = function() {
 
             // Booting
             that.props.dispatch(actions.addStatus('idle'))
+            document.title = appName
             term.style.backgroundImage = "url(" + img3.src + ")";
             that.handleInput('presentation')
 
@@ -89,7 +91,7 @@ var terminal = React.createClass({
     // Handles the input.
     // First sanitizes and collect the command.
     // then switch check for come edge cases
-    // before api.getResponse
+    // before develbot.getResponse
     handleInput (input) {
 
         // inital states
@@ -117,7 +119,7 @@ var terminal = React.createClass({
 
 
         // ###################################################
-        // First edge cases then default ask the api for a
+        // First edge cases then default ask the develbot for a
         // response to print
         console.log("location:", location)
         if (location !== command || backlink === undefined) {
@@ -126,7 +128,7 @@ var terminal = React.createClass({
                 case 'back':
                     if (backlink === undefined) break;
                     console.log("backlink",backlink)
-                    api.getResponse(backlink, (err,res) => {
+                    develbot.getResponse(backlink, (err,res) => {
                         if (err) {
                             that.print(err)
                         } else {
@@ -167,7 +169,7 @@ var terminal = React.createClass({
                     break
                 default:
                     that.setState({ output: "", speed: 55 })
-                    api.getResponse(command, (err,res) => {
+                    develbot.getResponse(command, (err,res) => {
                         if (err) {
                             that.print(err)
                         } else {
@@ -320,6 +322,7 @@ var terminal = React.createClass({
 export default connect(
     (state) => {
         return {
+            appName: state.appName,
             isPrinting: state.isPrinting,
             history: state.history,
             status: state.status

@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Entry.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-29T00:03:28+02:00
+ * @Last modified time: 2017-03-30T15:56:48+02:00
 */
 
 console.log(`
@@ -51,20 +51,27 @@ var React    = require('react'),
 
 import Terminal from 'terminal'
 
-// injecting boot information since react at this
-// time does not have have control of rendering.
+// Injecting boot information since react at this time does not have have control of rendering.
+// ###################################################
 var ul = document.getElementById('application-status');
 ul.innerHTML = '<li>Loading </li>'
 var li = document.createElement("li");
 li.appendChild(document.createTextNode(''));
 li.innerHTML = 'Scripting <span class="blink">.</span>'
 ul.appendChild(li);
-//
+document.title = "andreeray.se - Scripting"
+// ###################################################
 
-store.subscribe(() => {});
-
+// Redux
+// ###################################################
+var unsubscribe = store.subscribe(() =>{
+    var state = store.getState()
+    document.title = state.appName
+})
+store.dispatch(actions.changeAppName('andreeray.se'))
 // update splash
 store.dispatch(actions.addStatus('Rendering'))
+// ###################################################
 
 
 require('style!css!sass!styles')
