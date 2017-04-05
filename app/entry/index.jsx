@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: index.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-05T17:08:31+02:00
+ * @Last modified time: 2017-04-05T17:32:30+02:00
  */
 
 
@@ -31,9 +31,9 @@ If you like to get in touch, please contact me at
 the email above. Many best wishes / DevelDoe.
 ##############################################
 %cBACKLOG#####################################
- * 2.8 output to redux
- * 2.9 add firebase and remove fake api
- * 3.1 change model to hold records
+ * 2.8 continue move to redux
+ * 2.9 api backend
+ * 3.0 records model & grammar api
 ##############################################
 %cDEBUGG######################################
 `,
