@@ -1,11 +1,12 @@
 /**
-* @Author: Andreee Ray <DevelDoe>
-* @Date:   2017-02-18T23:58:38+01:00
-* @Email:  me@andreeray.se
-* @Filename: Entry.jsx
+ * @Author: Andreee Ray <develdoe>
+ * @Date:   2017-04-05T17:06:19+02:00
+ * @Email:  me@andreeray.se
+ * @Filename: index.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-30T15:56:48+02:00
-*/
+ * @Last modified time: 2017-04-05T17:08:31+02:00
+ */
+
 
 console.log(`
 %cMETA########################################
@@ -13,16 +14,13 @@ console.log(`
  * @Date                : 2017-02-18T23:58:38+01:00
  * @Email               : me@andreeray.se
  * @Site                : andreeray.se
- * @Patch               : 2.7.62
+ * @Patch               : 2.7.63
  * @Last modified by    : develdoe
  * @Last modified time  : 2017-03-28T23:48:43+02:00
 ##############################################
-
 %cABOUT#######################################
-
 Welcome! I am the Devel, a HTML CSS and
 JavaScript ninja @ Devel Devils.
-
 The application is built with REACT, a JavaScript
 library that encapsulat components that
 manage their own state. The application also uses
@@ -32,13 +30,11 @@ a formal introduction.
 If you like to get in touch, please contact me at
 the email above. Many best wishes / DevelDoe.
 ##############################################
-
 %cBACKLOG#####################################
  * 2.8 output to redux
  * 2.9 add firebase and remove fake api
  * 3.1 change model to hold records
 ##############################################
-
 %cDEBUGG######################################
 `,
 'color: orange','color: #fc8daa','color: #93dcff','color: #ccc')
