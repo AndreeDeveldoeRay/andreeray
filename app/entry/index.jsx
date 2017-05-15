@@ -4,7 +4,7 @@
  * @Email:  me@andreeray.se
  * @Filename: index.jsx
  * @Last modified by:   develdoe
- * @Last modified time: 2017-04-05T17:32:30+02:00
+ * @Last modified time: 2017-04-05T19:00:23+02:00
  */
 
 
@@ -14,7 +14,7 @@ console.log(`
  * @Date                : 2017-02-18T23:58:38+01:00
  * @Email               : me@andreeray.se
  * @Site                : andreeray.se
- * @Patch               : 2.7.63
+ * @Patch               : 2.8.63
  * @Last modified by    : develdoe
  * @Last modified time  : 2017-03-28T23:48:43+02:00
 ##############################################
@@ -31,9 +31,10 @@ If you like to get in touch, please contact me at
 the email above. Many best wishes / DevelDoe.
 ##############################################
 %cBACKLOG#####################################
- * 2.8 continue move to redux
- * 2.9 api backend
- * 3.0 records model & grammar api
+ * 2.81 continue move to redux
+ * 2.82 api backend
+ * 3.0 grammar api
+ * 3.1 records model
 ##############################################
 %cDEBUGG######################################
 `,

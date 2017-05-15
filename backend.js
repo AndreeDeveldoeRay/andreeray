@@ -4,7 +4,7 @@
 * @Email:  me@andreeray.se
 * @Filename: Store.js
  * @Last modified by:   develdoe
- * @Last modified time: 2017-03-28T23:58:20+02:00
+ * @Last modified time: 2017-04-26T13:07:16+02:00
 */
 
 // TODO: instead of strings use arrays with objects containting records
@@ -60,7 +60,7 @@ var data = [
                     <li>JavaScript ES2015</li>
                 </ul>
                 <p><small>
-                    React | Redux | Node | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jQuery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha | DraftJS
+                    React | Redux | Node | Material-ui | Responsive | Mobile First | REST | Foundation | Jekyll | Webpack | Babel | Express | jQuery | SASS | Axios | Jsonp | Firebase | Expect | Karma | Mocha | DraftJS
                 </small></p>
                 <p>
                     Source code @ <b>github</b>
